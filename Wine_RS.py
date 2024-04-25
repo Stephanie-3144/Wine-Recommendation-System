@@ -174,4 +174,5 @@ predictions = sorted(predicted_scores.items(), key = lambda item:item[1],reverse
 Wine_list=[]
 for i in predictions:
     Wine_list.append(i[0])
-st.write(f'Here is the wines list we recommend for you: {Wine_list}')
+st.write('Here is the wines list we recommend for you: ')
+st.write(Wine_list)
