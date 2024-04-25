@@ -1,9 +1,12 @@
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+import streamlit as st
+
+st.title('Wine Recommendation System')
 
 #load data
-data = pd.read_csv('XWines_Test_1K_ratings.csv')
+data = pd.read_csv('https://raw.githubusercontent.com/Stephanie-3144/Wine-Recommendation-System/XWines_Test_1K_ratings.csv')
 
 
 # check null
@@ -21,7 +24,10 @@ user_similarity = cosine_similarity(matrix)
 #reset index
 matrix = matrix.reset_index() 
 
-user_id = int(input('Please input a user id:'))
+user_id = st.text_input('Please input your user id:')
+if user_id:
+    user_id = int(user_id)
+    
 #create a function to help find the similar users based cosine similarity score
 def get_user_similarities(user_id, matrix, user_similarity, top_k): 
     try:
@@ -168,4 +174,4 @@ predictions = sorted(predicted_scores.items(), key = lambda item:item[1],reverse
 Wine_list=[]
 for i in predictions:
     Wine_list.append(i[0])
-print(f'Here is the wines list we recommend for you: {Wine_list}')
+st.write(f'Here is the wines list we recommend for you: {Wine_list}')
