@@ -6,7 +6,7 @@ import streamlit as st
 st.title('Wine Recommendation System')
 
 #load data
-data = pd.read_csv('https://raw.githubusercontent.com/Stephanie-3144/Wine-Recommendation-System/XWines_Test_1K_ratings.csv')
+data = pd.read_csv('https://raw.githubusercontent.com/Stephanie-3144/Wine-Recommendation-System/main/XWines_Test_1K_ratings.csv')
 
 
 # check null
